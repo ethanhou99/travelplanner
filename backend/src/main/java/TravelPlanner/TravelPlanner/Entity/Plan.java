@@ -21,6 +21,12 @@ public class Plan {
 
     List<Place> placeList;
 
+    //创建日期
+
+    //duration
+
+
+
 
     //setter and setters
     public User getUser() {

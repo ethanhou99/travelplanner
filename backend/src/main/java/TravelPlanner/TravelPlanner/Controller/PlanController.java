@@ -2,7 +2,6 @@ package TravelPlanner.TravelPlanner.Controller;
 
 import TravelPlanner.TravelPlanner.Entity.Place;
 import TravelPlanner.TravelPlanner.Entity.Plan;
-import TravelPlanner.TravelPlanner.Repository.PlansRepository;
 import TravelPlanner.TravelPlanner.Service.PlaceService;
 import TravelPlanner.TravelPlanner.Service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;

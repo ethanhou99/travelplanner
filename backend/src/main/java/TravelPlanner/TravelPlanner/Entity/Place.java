@@ -20,6 +20,10 @@ public class Place {
     @NotNull
     private String ImageURL;
 
+    //geo info
+    //open time
+
+
 
     private List<User> visitors;
 
