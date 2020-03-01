@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -75,5 +74,4 @@ public class User {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
-
 }

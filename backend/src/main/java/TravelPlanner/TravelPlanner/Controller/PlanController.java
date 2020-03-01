@@ -68,5 +68,4 @@ public class PlanController {
     public Plan deletePlace(@PathVariable Integer placeId, @PathVariable Integer planId) {
         return placeService.deletePlace(planId, placeId);
     }
-
 }
