@@ -61,11 +61,6 @@ public class PlanService {
 
     //save the plans into plansRepository
     public Plan savePlan(Plan plan, Integer userId) {
-//        User user = usersRepository.getOne(userId);
-//        user.getPlanList().add(plan);
-//        usersRepository.save(user);
-        //List<Plan> userPlanList = plansRepository.findPlansByUserId(userId);
-        //userPlanList.add(plan)
         plan.setUserId(userId);
         for (DailyPlan dailyPlan : plan.getDailyPlanList()) {
             dailyPlanRepository.save(dailyPlan);
@@ -74,24 +69,15 @@ public class PlanService {
     }
 
     public Plan generatePlan(List<Place> placeList, Integer userId){
-//        Plan plan= plansRepository.save(new Plan());
-        Plan plan = new Plan();
-    public Plan generatePlan(List<Place> placeList, Integer userId) {
-//        Plan plan= plansRepository.save(new Plan());
         Plan plan = new Plan();
         plan.setUserId(userId);
         //TODO: algorithm
-//        DailyPlan dp = dailyPlanRepository.save(new DailyPlan());
         DailyPlan dp = new DailyPlan();
-        //dp.setPlanId(plan.getPlanId());
-        //dp.setPlan(plan);
         dp.setPlaceList(placeList);
         dp.setDayNo(1);
         List<DailyPlan> list = new ArrayList<>();
         list.add(dp);
         plan.setDailyPlanList(list);
         return plan;
-        //return plansRepository.save(plan);
-
     }
 }
