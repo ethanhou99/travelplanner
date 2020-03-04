@@ -29,22 +29,9 @@ public class Place {
     @NotNull
     private String ImageURL;
 
-<<<<<<< HEAD
-    //geo info
-    //open time
-
-=======
     private String address;
->>>>>>> master
 
-
-    //private List<User> visitors;
-
-    //constructor
     public Place() {
     }
-
-
-
 
 }
