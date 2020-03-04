@@ -17,8 +17,6 @@ public class DailyPlan {
 //    @JoinColumn
 //    private Plan plan;
 
-//    private Integer planId;
-
     private Integer DayNo;
 
     @ManyToMany

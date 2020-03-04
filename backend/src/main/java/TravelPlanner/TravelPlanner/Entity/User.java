@@ -1,17 +1,11 @@
 package TravelPlanner.TravelPlanner.Entity;
 
 import lombok.Data;
-import lombok.Generated;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -54,14 +48,6 @@ public class User {
         this.userPassword = userPassword;
     }
 
-//    public List<Place> getVisitingPlaces() {
-//        return visitingPlaces;
-//    }
-//
-//    public void setVisitingPlaces(List<Place> visitingPlaces) {
-//        this.visitingPlaces = visitingPlaces;
-//    }
-
     public String getUserName() {
         return userName;
     }
@@ -69,14 +55,6 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-//    public Timestamp getMemberSince() {
-//        return memberSince;
-//    }
-//
-//    public void setMemberSince(Timestamp memberSince) {
-//        this.memberSince = memberSince;
-//    }
 
     public String getUserEmail() {
         return userEmail;
