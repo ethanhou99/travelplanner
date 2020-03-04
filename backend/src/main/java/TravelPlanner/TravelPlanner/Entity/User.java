@@ -2,11 +2,14 @@ package TravelPlanner.TravelPlanner.Entity;
 
 import lombok.Data;
 import lombok.Generated;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -19,23 +22,29 @@ public class User {
     private Integer userId;
 
     //get all places that a user want to visit
-//    @OneToMany(mappedBy = "userId")
+//    @OneToMany(mappedBy = "user")
 //    private List<Place> visitingPlaces;
 
     @NotNull
+    @Column
     private String userName;
 
-    @NotNull
+
+    @Column
+    @CreationTimestamp
     private Timestamp memberSince;
 
     @NotNull
+    @Column
     private String userEmail;
 
     @NotNull
+    @Column
     private String userPassword;
 
-   // @OneToMany
-   // private List<Plan> planList;
+//    @OneToMany(mappedBy = "user")
+//    @JoinColumn(name = "plan_id")
+//    private List<Plan> planList;
 
     public User() {
     }
@@ -61,13 +70,13 @@ public class User {
         this.userName = userName;
     }
 
-    public Timestamp getMemberSince() {
-        return memberSince;
-    }
-
-    public void setMemberSince(Timestamp memberSince) {
-        this.memberSince = memberSince;
-    }
+//    public Timestamp getMemberSince() {
+//        return memberSince;
+//    }
+//
+//    public void setMemberSince(Timestamp memberSince) {
+//        this.memberSince = memberSince;
+//    }
 
     public String getUserEmail() {
         return userEmail;
