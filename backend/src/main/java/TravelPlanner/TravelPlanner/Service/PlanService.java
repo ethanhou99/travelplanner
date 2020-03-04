@@ -73,6 +73,9 @@ public class PlanService {
         return plansRepository.save(plan);
     }
 
+    public Plan generatePlan(List<Place> placeList, Integer userId){
+//        Plan plan= plansRepository.save(new Plan());
+        Plan plan = new Plan();
     public Plan generatePlan(List<Place> placeList, Integer userId) {
 //        Plan plan= plansRepository.save(new Plan());
         Plan plan = new Plan();
@@ -84,7 +87,6 @@ public class PlanService {
         //dp.setPlan(plan);
         dp.setPlaceList(placeList);
         dp.setDayNo(1);
-        // dailyPlanRepository.save(dp);
         List<DailyPlan> list = new ArrayList<>();
         list.add(dp);
         plan.setDailyPlanList(list);
