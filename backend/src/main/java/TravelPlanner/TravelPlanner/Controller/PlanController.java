@@ -2,7 +2,6 @@ package TravelPlanner.TravelPlanner.Controller;
 
 import TravelPlanner.TravelPlanner.Entity.Place;
 import TravelPlanner.TravelPlanner.Entity.Plan;
-import TravelPlanner.TravelPlanner.Repository.PlansRepository;
 import TravelPlanner.TravelPlanner.Service.PlaceService;
 import TravelPlanner.TravelPlanner.Service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +48,7 @@ public class PlanController {
         planService.deletePlanById(planId);
         return true;
     }
+<<<<<<< HEAD
 
     //get user's places
     @GetMapping("/places/{userId}")
@@ -67,5 +67,15 @@ public class PlanController {
     @DeleteMapping("/deletePlace/{placeId}&{planId}")
     public Plan deletePlace(@PathVariable Integer placeId, @PathVariable Integer planId) {
         return placeService.deletePlace(planId, placeId);
+=======
+    @GetMapping("/places")
+    public List<Place> getAllPlaces() {
+        return placeService.findAll();
+    }
+
+    @GetMapping("/plan/generate/{userId}")
+    public Plan generatePlan(@RequestBody List<Place> placeList, @PathVariable Integer userId) {
+        return planService.generatePlan(placeList, userId);
+>>>>>>> 91e3c19df853313cbea9b572cc7269eb1a4cb83b
     }
 }

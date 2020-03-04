@@ -1,24 +1,24 @@
 package TravelPlanner.TravelPlanner.Entity;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
-@Table(name = "MyPlans")
 public class Plan {
     @Id
     @GeneratedValue
-    @Column(name="planId")
     private Integer planId;
 
-    //attach plan to the user ---> each user could have multiple plans
-    @ManyToOne
-    @JoinColumn(name="userId", insertable=false, updatable=false)
-    private User user;
-
     private Integer userId;
+    private String date;
+    @OneToMany
+    private List<DailyPlan> dailyPlanList;
 
+<<<<<<< HEAD
     List<Place> placeList;
 
     public Plan(){}
@@ -31,6 +31,9 @@ public class Plan {
     public void setUser(User user) {
         this.user = user;
     }
+=======
+    public Plan(){}
+>>>>>>> 91e3c19df853313cbea9b572cc7269eb1a4cb83b
 
     public Integer getUserId() {
         return userId;
@@ -40,12 +43,5 @@ public class Plan {
         this.userId = userId;
     }
 
-    public List<Place> getPlaceList() {
-        return placeList;
-    }
-
-    public void setPlaceList(List<Place> placeList) {
-        this.placeList = placeList;
-    }
 
 }

@@ -8,14 +8,15 @@ import java.util.List;
 public interface UsersRepository extends JpaRepository<User, Integer> {
     //find by userId
     User findByUserId(Integer userId);
+<<<<<<< HEAD
 
     //find all the users on the site
     List<User> findAll();
+=======
+>>>>>>> 91e3c19df853313cbea9b572cc7269eb1a4cb83b
 
-    //find all the visitors that went to the same place
-    List<User> findByPlaceId(Integer placeId);
+    List<User> findAll();
 
-    //for the user to login
     User findByUserEmailAndUserPassword(String userEmail, String userPassword);
 
 }

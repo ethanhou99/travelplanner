@@ -22,6 +22,7 @@ public class PlaceService {
     }
 
     public PlaceService() {
+<<<<<<< HEAD
 
     }
 
@@ -49,9 +50,15 @@ public class PlaceService {
         plan.getPlaceList().remove(place);
         plansRepository.deleteById(planId);
         return plansRepository.save(plan);
+=======
     }
 
-    //save the new plan into plansRepository
+    public List<Place> findAll() {
+        return placesRepository.findAll();
+>>>>>>> 91e3c19df853313cbea9b572cc7269eb1a4cb83b
+    }
+
+    //use to save the plan
     public void setPlansRepository(PlansRepository newRepository) {
         this.plansRepository = newRepository;
     }

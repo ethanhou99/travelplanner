@@ -33,6 +33,10 @@ public class UserController {
     public List<User> findAll() {
         return userService.findAll();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 91e3c19df853313cbea9b572cc7269eb1a4cb83b
     //registration ---> createUser
     @PostMapping("/registration")
     public User register(@RequestBody User user) {
