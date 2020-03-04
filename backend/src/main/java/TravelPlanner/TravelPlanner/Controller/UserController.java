@@ -53,26 +53,4 @@ public class UserController {
             return user;
         }
     }
-
-    /*
-    @RequestMapping(value = "/user/place/{placeId}", method = RequestMethod.POST)
-    public ResponseEntity<User> addPlaceForUser(@PathVariable("userId") Integer userId, @PathVariable("placeId") Integer placeId) {
-        Place newPlace = placesRepository.getOne(placeId);
-
-        //use optional in case the user is not existed
-        Optional<User> user = usersRepository.findById(userId);
-        if (user.isPresent()) {
-            List<Place> userVisitingList = placesRepository.findAllByUserId(userId);
-            userVisitingList.add(newPlace);
-            user.setVisitingPlaces(userVisitingList);
-            usersRepository.save();
-            return ResponseEntity.ok(user);
-        } else {
-            User tempUser = new User();
-            List<Place> tempList = new ArrayList<Place>();
-            tempList.add(newPlace);
-            return ResponseEntity.ok(tempUser);
-        }
-    }
-    */
 }
