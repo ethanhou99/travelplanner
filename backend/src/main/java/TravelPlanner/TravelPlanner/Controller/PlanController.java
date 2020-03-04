@@ -1,5 +1,6 @@
 package TravelPlanner.TravelPlanner.Controller;
 
+import TravelPlanner.TravelPlanner.Entity.DailyPlan;
 import TravelPlanner.TravelPlanner.Entity.Place;
 import TravelPlanner.TravelPlanner.Entity.Plan;
 import TravelPlanner.TravelPlanner.Repository.PlacesRepository;
@@ -9,6 +10,7 @@ import TravelPlanner.TravelPlanner.Service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -34,8 +36,8 @@ public class PlanController {
 
     //save the plan
     @PostMapping("/plan/{userId}")
-    public void savePlan(@RequestBody Plan plan, @PathVariable Integer userId) {
-        planService.savePlan(plan, userId);
+    public Plan savePlan(@RequestBody Plan plan, @PathVariable Integer userId) {
+        return planService.savePlan(plan, userId);
     }
 
     //get user's planList
