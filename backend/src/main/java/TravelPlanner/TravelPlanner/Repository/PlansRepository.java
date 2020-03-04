@@ -3,6 +3,7 @@ package TravelPlanner.TravelPlanner.Repository;
 import TravelPlanner.TravelPlanner.Entity.Place;
 import TravelPlanner.TravelPlanner.Entity.Plan;
 import TravelPlanner.TravelPlanner.Entity.User;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

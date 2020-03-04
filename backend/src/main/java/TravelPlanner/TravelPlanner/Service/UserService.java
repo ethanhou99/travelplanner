@@ -25,8 +25,7 @@ public class UserService {
 
     //easier for controller to create user
     public User createUser(User user) {
-        user = usersRepository.save(user);
-        return user;
+        return usersRepository.save(user);
     }
 
     //for the login

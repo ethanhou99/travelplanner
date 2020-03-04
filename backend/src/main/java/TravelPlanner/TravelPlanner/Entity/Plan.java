@@ -8,21 +8,23 @@ import java.util.List;
 
 @Data
 @Entity
-//@Table(name = "MyPlans")
+//@Table(name = "Plan")
 public class Plan {
     @Id
-    @GeneratedValue
-    //@Column(name="planId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name="plan_id", unique = true)
     private Integer planId;
 
     //attach plan to the user ---> each user could have multiple plans
 //    @ManyToOne
-//    @JoinColumn(name="userId", insertable=false, updatable=false)
+//    @JoinColumn(name = "user_id")//(name="user_id", insertable=false, updatable=false)
 //    private User user;
 
     private Integer userId;
+    @Column
     private String date;
-    @OneToMany
+
+    @OneToMany//(mappedBy = "plan", fetch = FetchType.LAZY)
     private List<DailyPlan> dailyPlanList;
 //
 //    @OneToMany
@@ -39,13 +41,13 @@ public class Plan {
 //        this.user = user;
 //    }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+//    public Integer getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(Integer userId) {
+//        this.userId = userId;
+//    }
 
 
 }
