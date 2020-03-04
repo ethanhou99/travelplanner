@@ -22,34 +22,13 @@ public class PlaceService {
     }
 
     public PlaceService() {
-
     }
 
-    //not sure if this curPlan is unique or save????
-    public Plan curPlan;
-
-
-    //find all the places picked by user ---> might be check list in the end
-    public List<Place> getPlacesByUserId(Integer userId) {
-        List<Place> userPlaceList = placesRepository.findAllByUserId(userId);
-        return userPlaceList;
+    public List<Place> findAll() {
+        return placesRepository.findAll();
     }
 
-
-    //add a place to the plan
-    public void addPlace(Plan plan, Place place) {
-        curPlan = plan;
-        curPlan.getPlaceList().add(place);
-        plansRepository.save(curPlan);
-    }
-
-    //delete place
-    public boolean deletePlace(Place place) {
-        curPlan.getPlaceList().remove(place);
-        return true;
-    }
-
-    //save the new plan into plansRepository
+    //use to save the plan
     public void setPlansRepository(PlansRepository newRepository) {
         this.plansRepository = newRepository;
     }

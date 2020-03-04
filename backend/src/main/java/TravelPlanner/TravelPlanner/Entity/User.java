@@ -1,26 +1,23 @@
 package TravelPlanner.TravelPlanner.Entity;
 
+import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.Set;
+
+import java.sql.Timestamp;
 
 @Entity
-@Table(name = "user")
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    //get all places that a user want to visit
-    @OneToMany(mappedBy = "userId")
-    private List<Place> visitingPlaces;
-
     @NotNull
     private String userName;
 
     @NotNull
-    private String mumberSince;
+    private Timestamp memberSince;
 
     @NotNull
     private String userEmail;
@@ -28,12 +25,12 @@ public class User {
     @NotNull
     private String userPassword;
 
-    public List<Place> getVisitingPlaces() {
-        return visitingPlaces;
+    public User() {
     }
 
-    public void setVisitingPlaces(List<Place> visitingPlaces) {
-        this.visitingPlaces = visitingPlaces;
+    public User(String userEmail, String userPassword) {
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
     }
 
     public String getUserName() {
@@ -44,12 +41,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getMumberSince() {
-        return mumberSince;
+    public Timestamp getMemberSince() {
+        return memberSince;
     }
 
-    public void setMumberSince(String mumberSince) {
-        this.mumberSince = mumberSince;
+    public void setMemberSince(Timestamp memberSince) {
+        this.memberSince = memberSince;
     }
 
     public String getUserEmail() {
