@@ -70,7 +70,7 @@ public class UserController {
 
     //authorized home page
     @GetMapping(value="/user/home")
-    public String adminHome(){
+    public String userHome(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         return "/user/home";
