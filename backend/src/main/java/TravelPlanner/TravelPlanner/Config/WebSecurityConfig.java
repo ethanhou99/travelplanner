@@ -49,15 +49,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and().csrf().disable()
                 .formLogin()
-                .loginPage(loginPage)
-                .loginPage("/")
-                .failureUrl("/login?error=true")
-                .defaultSuccessUrl("/user/home")
-                //     .usernameParameter("user_name")
-                //     .passwordParameter("password")
-                .and().logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
-                .logoutSuccessUrl(loginPage).and().exceptionHandling();
+//                    .loginPage(loginPage)
+//                    .usernameParameter("username")
+//                    .passwordParameter("password")
+//                    .loginPage("/")
+                    .failureUrl("/login?error=true")
+                    .defaultSuccessUrl("/user/home")
+                    .and().logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
+                    .logoutSuccessUrl(loginPage).and().exceptionHandling();
     }
 
     @Override

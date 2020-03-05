@@ -46,7 +46,7 @@ public class UserService {
 
         //for the login
     public User loginUser(User user) {
-        return usersRepository.findByUserEmailAndUserPassword(user.getUserEmail(), user.getUserPassword());
+        return usersRepository.findByUserNameAndUserPassword(user.getUserName(), user.getUserPassword());
     }
 
 }
