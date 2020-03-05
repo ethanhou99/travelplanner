@@ -28,9 +28,9 @@ public class UserService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public User findUserByEmail(String email) {
-        return usersRepository.findByEmail(email);
-    }
+//    public User findUserByEmail(String email) {
+//        return usersRepository.findByEmail(email);
+//    }
 
     public User findUserByUserName(String userName) {
         return usersRepository.findByUserName(userName);
@@ -39,7 +39,7 @@ public class UserService {
     public User saveUser(User user) {
         user.setUserPassword(bCryptPasswordEncoder.encode(user.getUserPassword()));
         user.setActive(true);
-        Role userRole = roleRepository.findByRole("ADMIN");
+        Role userRole = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         return usersRepository.save(user);
     }

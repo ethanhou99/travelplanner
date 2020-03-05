@@ -1,15 +1,13 @@
 package TravelPlanner.TravelPlanner.Entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -34,7 +32,7 @@ public class User {
     @NotEmpty(message = "*Please provide a user name")
     private String userName;
 
-    @NotNull
+    @CreationTimestamp
     private Timestamp memberSince;
 
     @Column(name = "email")
