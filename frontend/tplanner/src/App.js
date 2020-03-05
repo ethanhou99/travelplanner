@@ -15,6 +15,7 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Dashboard2 from "./components/dashboard2/Dashboard2";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
@@ -63,9 +64,12 @@ class App extends Component {
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path="/predict" component={Predict} />
-              <Switch>
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/dashboard2" component={Dashboard2} />
+
+              {/* <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch>
+              </Switch> */}
               <Switch>
                 <PrivateRoute
                   exact
