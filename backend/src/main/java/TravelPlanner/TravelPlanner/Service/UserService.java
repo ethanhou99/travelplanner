@@ -44,6 +44,11 @@ public class UserService {
         return usersRepository.save(user);
     }
 
+        //for the login
+    public User loginUser(User user) {
+        return usersRepository.findByUserEmailAndUserPassword(user.getUserEmail(), user.getUserPassword());
+    }
+
 }
 //
 //@Service
@@ -67,10 +72,7 @@ public class UserService {
 //        return user;
 //    }
 //
-//    //for the login
-//    public User loginUser(User user) {
-//        return usersRepository.findByUserEmailAndUserPassword(user.getUserEmail(), user.getUserPassword());
-//    }
+
 //
 //    //find a user
 //    public Optional<User> findOneUser(Integer userId) {
