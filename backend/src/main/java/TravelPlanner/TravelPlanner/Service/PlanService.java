@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -59,29 +60,24 @@ public class PlanService {
     }
 
     //save the plans into plansRepository
-    public void savePlan(Plan plan, Integer userId) {
+    public Plan savePlan(Plan plan, Integer userId) {
         plan.setUserId(userId);
-//        User user = usersRepository.getOne(userId);
-//        user.getPlanList().add(plan);
-//        usersRepository.save(user);
-        //List<Plan> userPlanList = plansRepository.findPlansByUserId(userId);
-        //userPlanList.add(plan);
-        plansRepository.save(plan);
+        for (DailyPlan dailyPlan : plan.getDailyPlanList()) {
+            dailyPlanRepository.save(dailyPlan);
+        }
+        return plansRepository.save(plan);
     }
 
     public Plan generatePlan(List<Place> placeList, Integer userId){
-        Plan plan= plansRepository.save(new Plan());
+        Plan plan = new Plan();
         plan.setUserId(userId);
         //TODO: algorithm
-        DailyPlan dp = dailyPlanRepository.save(new DailyPlan());
-        dp.setPlanId(plan.getPlanId());
+        DailyPlan dp = new DailyPlan();
         dp.setPlaceList(placeList);
         dp.setDayNo(1);
-        dailyPlanRepository.save(dp);
         List<DailyPlan> list = new ArrayList<>();
         list.add(dp);
         plan.setDailyPlanList(list);
-        return plansRepository.save(plan);
-
+        return plan;
     }
 }
