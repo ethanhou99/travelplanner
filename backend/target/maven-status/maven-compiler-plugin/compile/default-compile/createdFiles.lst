@@ -1,2 +1,9 @@
-TravelPlanner/TravelPlanner/MvcConfig.class
+TravelPlanner/TravelPlanner/PlanAlgo/PlanContext.class
+TravelPlanner/TravelPlanner/Entity/DailyPlan.class
 TravelPlanner/TravelPlanner/TravelPlannerApplication.class
+TravelPlanner/TravelPlanner/LoadDatabase.class
+TravelPlanner/TravelPlanner/PlanAlgo/PlanAlgoException/InvalidDurationException.class
+TravelPlanner/TravelPlanner/PlanAlgo/PlanAlgoException/NoPlacesException.class
+TravelPlanner/TravelPlanner/PlanAlgo/PlanStrategy.class
+TravelPlanner/TravelPlanner/Repository/DailyPlanRepository.class
+TravelPlanner/TravelPlanner/PlanAlgo/PlanAlgoOne.class

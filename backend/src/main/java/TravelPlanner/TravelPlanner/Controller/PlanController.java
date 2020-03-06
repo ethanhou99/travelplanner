@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class PlanController {
@@ -58,8 +59,8 @@ public class PlanController {
     }
 
     @GetMapping("/plan/generate/{userId}")
-    public Plan generatePlan(@RequestBody List<Place> placeList, @PathVariable Integer userId) {
-        return planService.generatePlan(placeList, userId);
+    public Plan generatePlan(@RequestBody Map<String, Object> params, @PathVariable Integer userId) {
+        return planService.generatePlan((List<Place>) params.get("placeList"), (int)params.get("duration"), userId);
     }
 
     //get user's places

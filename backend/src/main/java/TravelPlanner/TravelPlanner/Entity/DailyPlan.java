@@ -22,6 +22,7 @@ public class DailyPlan {
     @ManyToMany
     private List<Place> placeList;
 
-    public DailyPlan() {
+    public DailyPlan(List<Place> placeList) {
+        this.placeList = placeList;
     }
 }

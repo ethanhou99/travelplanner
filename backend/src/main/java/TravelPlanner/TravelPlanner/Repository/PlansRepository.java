@@ -13,4 +13,6 @@ public interface PlansRepository extends JpaRepository<Plan, Integer> {
     Plan findPlanByPlanId(Integer id);
 
     List<Plan> findPlansByUserId(Integer userId);
+
+    Plan save(Plan plan);
 }

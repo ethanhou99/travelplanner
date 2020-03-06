@@ -32,7 +32,4 @@ public class Plan {
 
     public Plan() {
     }
-
-
-
 }

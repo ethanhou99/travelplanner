@@ -8,7 +8,7 @@ public class PlanContext {
     public PlanContext(PlanStrategy planStrategy) {
         this.planStrategy = planStrategy;
     }
-    public Plan executeStrategy(List<Place> placeList) {
-        return planStrategy.calculatePlan(placeList);
+    public Plan executeStrategy(List<Place> placeList, int duration) throws Exception {
+        return planStrategy.calculatePlan(placeList, duration);
     }
 }
