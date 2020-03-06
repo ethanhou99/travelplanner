@@ -8,7 +8,7 @@ export default class ProfileForm extends Component {
     return (
       <div className="col-2of5 bg-white profile">
         <div className="relative img-edit">
-            <img className="avatar" src="./sample-avatar.png" alt="upload-img" />
+            <img className="avatar" src="/Users/tingyi/MyProject/travelplanner/frontend/tplanner/public/img/sample-avatar.png" alt="upload-img" />
         </div>
         <h5 id="username">@User A</h5>
         <input className="input-profile" type="text" placeholder="User Name" />
