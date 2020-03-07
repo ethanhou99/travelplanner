@@ -1,0 +1,26 @@
+.login_header{
+    height: 150px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    color: #333;
+    margin: auto;
+}
+
+.Login_button{
+    text-align: center;
+    color: white;
+    background: chocolate;
+    width: 400px;
+    height: 50px;
+    margin: auto;
+    align-items: center;
+
+}
+.temp{
+    text-align: center;
+}

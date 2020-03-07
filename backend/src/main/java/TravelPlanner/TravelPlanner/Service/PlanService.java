@@ -4,10 +4,14 @@ import TravelPlanner.TravelPlanner.Entity.DailyPlan;
 import TravelPlanner.TravelPlanner.Entity.Place;
 import TravelPlanner.TravelPlanner.Entity.Plan;
 import TravelPlanner.TravelPlanner.Entity.User;
+import TravelPlanner.TravelPlanner.PlanAlgo.PlanAlgoOne;
 import TravelPlanner.TravelPlanner.Repository.DailyPlanRepository;
 import TravelPlanner.TravelPlanner.Repository.PlacesRepository;
 import TravelPlanner.TravelPlanner.Repository.PlansRepository;
 import TravelPlanner.TravelPlanner.Repository.UsersRepository;
+import TravelPlanner.TravelPlanner.PlanAlgo.PlanStrategy;
+import TravelPlanner.TravelPlanner.PlanAlgo.PlanContext;
+import TravelPlanner.TravelPlanner.PlanAlgo.PlanAlgoOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,16 +72,22 @@ public class PlanService {
         return plansRepository.save(plan);
     }
 
-    public Plan generatePlan(List<Place> placeList, Integer userId){
-        Plan plan = new Plan();
-        plan.setUserId(userId);
+    public Plan generatePlan(List<Place> placeList, Integer userId) {
+        //Plan plan = new Plan();
+//        Plan plan= plansRepository.save(new Plan());
+//        plan.setUserId(userId);
         //TODO: algorithm
-        DailyPlan dp = new DailyPlan();
-        dp.setPlaceList(placeList);
-        dp.setDayNo(1);
-        List<DailyPlan> list = new ArrayList<>();
-        list.add(dp);
-        plan.setDailyPlanList(list);
+        PlanContext planContext = new PlanContext(new PlanAlgoOne());
+        Plan plan = planContext.executeStrategy(placeList);
+        plan.setUserId(userId);
+//        DailyPlan dp = dailyPlanRepository.save(new DailyPlan());
+//        dp.setPlanId(plan.getPlanId());
+//        dp.setPlaceList(placeList);
+//        dp.setDayNo(1);
+//        dailyPlanRepository.save(dp);
+//        List<DailyPlan> list = new ArrayList<>();
+//        list.add(dp);
+//        plan.setDailyPlanList(list);
         return plan;
     }
 }

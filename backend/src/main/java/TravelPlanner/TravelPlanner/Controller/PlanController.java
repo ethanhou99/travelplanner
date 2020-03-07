@@ -61,24 +61,4 @@ public class PlanController {
     public Plan generatePlan(@RequestBody List<Place> placeList, @PathVariable Integer userId) {
         return planService.generatePlan(placeList, userId);
     }
-
-    //get user's places
-//    @GetMapping("/places/{userId}")
-//    public List<Place> getPlaces(@PathVariable Integer userId) {
-//        return placeService.getPlacesByUserId(userId);
-//    }
-
-//    //add place to cur plan
-//    @PutMapping("/addPlace/{planId}")
-//    public Plan addPlace( @RequestBody Place place, @PathVariable Integer planId) {
-//        Plan plan = planService.getPlanByPlanId(planId);
-//        return placeService.addPlace(plan, place);
-//    }
-
-//    //delete place
-//    @DeleteMapping("/deletePlace/{placeId}&{planId}")
-//    public Plan deletePlace(@PathVariable Integer placeId, @PathVariable Integer planId) {
-//        return placeService.deletePlace(planId, placeId);
-//    }
-
 }
