@@ -53,7 +53,7 @@ public class UserService {
     public User loginUser(User user) {
         return usersRepository.findByUserNameAndUserPassword(user.getUserName(), user.getUserPassword());
     }
-
+    
 }
 //
 //@Service
