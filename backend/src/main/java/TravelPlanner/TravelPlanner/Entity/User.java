@@ -1,75 +1,107 @@
 package TravelPlanner.TravelPlanner.Entity;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.sql.Timestamp;
+import java.util.Set;
 
-@Entity
 @Data
-//@Table(name = "user")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Integer userId;
 
     //get all places that a user want to visit
-//    @OneToMany(mappedBy = "user")
+//    @OneToMany(mappedBy = "userId")
 //    private List<Place> visitingPlaces;
 
-    @NotNull
-    @Column
+    @Column(name = "user_name")
+    @Length(min = 5, message = "*Your user name must have at least 5 characters")
+    @NotEmpty(message = "*Please provide a user name")
     private String userName;
 
-
-    @Column
     @CreationTimestamp
     private Timestamp memberSince;
 
-    @NotNull
-    @Column
+    @Column(name = "email")
+    @Email(message = "*Please provide a valid Email")
+    @NotEmpty(message = "*Please provide an email")
     private String userEmail;
 
-    @NotNull
-    @Column
+    @Column(name = "password")
+    @Length(min = 5, message = "*Your password must have at least 5 characters")
+    @NotEmpty(message = "*Please provide your password")
     private String userPassword;
 
-//    @OneToMany(mappedBy = "user")
-//    @JoinColumn(name = "plan_id")
-//    private List<Plan> planList;
+    @Column(name = "active")
+    private Boolean active;
 
-    public User() {
-    }
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
-    public User(String userEmail, String userPassword) {
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-    }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
+    //   // @OneToMany
+//   // private List<Plan> planList;
+//
+//    public User() {
+//    }
+//
+//    public User(String userEmail, String userPassword) {
+//        this.userEmail = userEmail;
+//        this.userPassword = userPassword;
+//    }
+//
+////    public List<Place> getVisitingPlaces() {
+////        return visitingPlaces;
+////    }
+////
+////    public void setVisitingPlaces(List<Place> visitingPlaces) {
+////        this.visitingPlaces = visitingPlaces;
+////    }
+//
+//    public String getUserName() {
+//        return userName;
+//    }
+//
+//    public void setUserName(String userName) {
+//        this.userName = userName;
+//    }
+//
+//    public Timestamp getMemberSince() {
+//        return memberSince;
+//    }
+//
+//    public void setMemberSince(Timestamp memberSince) {
+//        this.memberSince = memberSince;
+//    }
+//
+//    public String getUserEmail() {
+//        return userEmail;
+//    }
+//
+//    public void setUserEmail(String userEmail) {
+//        this.userEmail = userEmail;
+//    }
+//
+//    public String getUserPassword() {
+//        return userPassword;
+//    }
+//
+//    public void setUserPassword(String userPassword) {
+//        this.userPassword = userPassword;
+//    }
 
 }

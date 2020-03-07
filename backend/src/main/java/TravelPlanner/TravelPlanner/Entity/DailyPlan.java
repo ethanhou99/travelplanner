@@ -13,10 +13,6 @@ public class DailyPlan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer DailyPlanId;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn
-//    private Plan plan;
-
     private Integer DayNo;
 
     @ManyToMany
