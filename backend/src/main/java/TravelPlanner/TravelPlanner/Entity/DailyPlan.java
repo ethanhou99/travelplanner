@@ -10,14 +10,12 @@ import java.util.List;
 public class DailyPlan {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer DailyPlanId;
-
-    private Integer PlanId;
 
     private Integer DayNo;
 
-    @OneToMany
+    @ManyToMany
     private List<Place> placeList;
 
     public DailyPlan() {

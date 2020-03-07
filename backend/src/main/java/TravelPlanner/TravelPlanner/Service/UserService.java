@@ -36,11 +36,16 @@ public class UserService {
         return usersRepository.findByUserName(userName);
     }
 
+<<<<<<< HEAD
     public User saveUser(User user) {
         user.setUserPassword(bCryptPasswordEncoder.encode(user.getUserPassword()));
         user.setActive(true);
         Role userRole = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+=======
+    //easier for controller to create user
+    public User createUser(User user) {
+>>>>>>> master
         return usersRepository.save(user);
     }
 
