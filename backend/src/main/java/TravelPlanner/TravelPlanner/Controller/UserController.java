@@ -45,10 +45,10 @@ public class UserController {
             return resultUser;
         }
     }
-    
+
     //unauthorized home page
-    @GetMapping(value={"/", "/home"})
-    public String home(){
+    @GetMapping(value = {"/", "/home"})
+    public String home() {
         return "/home";
     }
 
@@ -69,8 +69,8 @@ public class UserController {
 //    }
 
     //authorized home page
-    @GetMapping(value="/user/home")
-    public String userHome(){
+    @GetMapping(value = "/user/home")
+    public String userHome() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         return "/user/home";

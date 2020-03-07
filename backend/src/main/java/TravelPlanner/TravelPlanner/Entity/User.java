@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.Set;
 
@@ -24,7 +25,7 @@ public class User {
     private Integer userId;
 
     //get all places that a user want to visit
-//    @OneToMany(mappedBy = "userId")
+//    @OneToMany(mappedBy = "user")
 //    private List<Place> visitingPlaces;
 
     @Column(name = "user_name")
@@ -47,6 +48,10 @@ public class User {
 
     @Column(name = "active")
     private Boolean active;
+
+//    @OneToMany(mappedBy = "user")
+//    @JoinColumn(name = "plan_id")
+//    private List<Plan> planList;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

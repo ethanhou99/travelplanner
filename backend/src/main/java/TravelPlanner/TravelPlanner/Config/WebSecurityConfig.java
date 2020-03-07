@@ -24,7 +24,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private MyUserDetailsService userDetailsService;
 
 
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -53,11 +52,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .usernameParameter("username")
 //                    .passwordParameter("password")
 //                    .loginPage("/")
-                    .failureUrl("/login?error=true")
-                    .defaultSuccessUrl("/user/home")
-                    .and().logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
-                    .logoutSuccessUrl(loginPage).and().exceptionHandling();
+                .failureUrl("/login?error=true")
+                .defaultSuccessUrl("/user/home")
+                .and().logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
+                .logoutSuccessUrl(loginPage).and().exceptionHandling();
     }
 
     @Override

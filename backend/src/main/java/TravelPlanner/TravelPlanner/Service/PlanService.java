@@ -72,12 +72,13 @@ public class PlanService {
         return plansRepository.save(plan);
     }
 
-    public Plan generatePlan(List<Place> placeList, Integer userId){
+    public Plan generatePlan(List<Place> placeList, Integer userId) {
+        //Plan plan = new Plan();
 //        Plan plan= plansRepository.save(new Plan());
 //        plan.setUserId(userId);
         //TODO: algorithm
         PlanContext planContext = new PlanContext(new PlanAlgoOne());
-        Plan plan =  planContext.executeStrategy(placeList);
+        Plan plan = planContext.executeStrategy(placeList);
         plan.setUserId(userId);
 //        DailyPlan dp = dailyPlanRepository.save(new DailyPlan());
 //        dp.setPlanId(plan.getPlanId());
@@ -87,6 +88,6 @@ public class PlanService {
 //        List<DailyPlan> list = new ArrayList<>();
 //        list.add(dp);
 //        plan.setDailyPlanList(list);
-        return plansRepository.save(plan);
+        return plan;
     }
 }

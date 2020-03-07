@@ -6,5 +6,5 @@ import TravelPlanner.TravelPlanner.Entity.Plan;
 import java.util.List;
 
 public interface PlanStrategy {
-    public Plan calculatePlan(List<Place> placeList);
+    Plan calculatePlan(List<Place> placeList);
 }
