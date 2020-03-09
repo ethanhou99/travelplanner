@@ -58,7 +58,24 @@ public class PlanController {
     }
 
     @GetMapping("/plan/generate/{userId}")
-    public Plan generatePlan(@RequestBody List<Place> placeList, @PathVariable Integer userId) {
-        return planService.generatePlan(placeList, userId);
+    public Plan generatePlan(@RequestBody PlaceListDuration placeListDuration, @PathVariable Integer userId) {
+        return planService.generatePlan(placeListDuration.getPlaceList(), placeListDuration.getDuration(), userId);
+    }
+    private static class PlaceListDuration{
+        List<Place> placeList;
+        int duration;
+
+        PlaceListDuration() {
+        }
+
+        public List<Place> getPlaceList() {
+            return placeList;
+        }
+
+        public int getDuration() {
+            return duration;
+        }
     }
 }
+
+
