@@ -111,7 +111,7 @@ public class PlanService {
             finalListOfDailyPlan.add(cur);
         }
 //        dailyPlanRepository.save(dp);
-        plan.setDailyPlanList(list);
+        plan.setDailyPlanList(finalListOfDailyPlan);
         return plan;
     }
     private DailyPlan getMinimalDis(DailyPlan dp) {
