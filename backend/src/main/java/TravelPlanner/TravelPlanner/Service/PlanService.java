@@ -69,7 +69,6 @@ public class PlanService {
         }
         return plansRepository.save(plan);
     }
-
     public Plan generatePlan(List<Place> placeList, Integer duration, Integer userId) {
         //Plan plan = new Plan();
 //        Plan plan= plansRepository.save(new Plan());
@@ -97,19 +96,71 @@ public class PlanService {
             dp.setDayNo(i + 1);
             list.add(dp);
         }
+        List<DailyPlan> finalListOfDailyPlan = new ArrayList<>();
         for (DailyPlan dailyPlan : list) {
-            dailyPlan.getPlaceList().sort(new Comparator<Place>() {
-                @Override
-                public int compare(Place o1, Place o2) {
-                    if (o1.getLatitude().equals(o2.getLatitude())) {
-                        return 0;
-                    }
-                    return o1.getLatitude() < o2.getLatitude() ? -1 : 1;
-                }
-            });
+//            dailyPlan.getPlaceList().sort(new Comparator<Place>() {
+//                @Override
+//                public int compare(Place o1, Place o2) {
+//                    if (o1.getLatitude().equals(o2.getLatitude())) {
+//                        return 0;
+//                    }
+//                    return o1.getLatitude() < o2.getLatitude() ? -1 : 1;
+//                }
+//            });
+            DailyPlan cur = getMinimalDis(dailyPlan);
+            finalListOfDailyPlan.add(cur);
         }
 //        dailyPlanRepository.save(dp);
         plan.setDailyPlanList(list);
         return plan;
+    }
+    private DailyPlan getMinimalDis(DailyPlan dp) {
+        double[] min = new double[] {Integer.MAX_VALUE};
+        List<List<Place>> res = new ArrayList<>();
+        List<Place> curPath = new ArrayList<>();
+        Place prePlace = new Place();
+        recursion(min, dp.getPlaceList(),0, 0, res, null);
+        dp.setPlaceList(res.get(0));
+        return res.size() == 0 ? new DailyPlan() :dp;
+    }
+    private void recursion(double[] min, List<Place> list, int index, double sum, List<List<Place>> res, Place prePlace) {
+        //base case
+        if(list == null || list.size() == 0) {
+            return;
+        }
+        if(index == list.size()) {
+            if(sum < min[0]) {
+                if(res.size() == 0) {
+                    res.add(new ArrayList<>(list));
+                }else {
+                    res.set(0, new ArrayList<>(list));
+                }
+                   min[0] = sum;
+            }
+            return;
+        }
+        //induction rule
+        for(int i = index; i < list.size(); i++) {
+            //swap
+            swap(i, index, list);
+            double newDis = 0;
+            Place curPlace = list.get(index);
+            if(prePlace != null ) {
+                if(curPlace != null) {
+                    double distanceLon = Math.abs(curPlace.getLongitude() - prePlace.getLongitude());
+                    double distanceLat = Math.abs(curPlace.getLatitude() - prePlace.getLatitude());
+                    newDis = Math.sqrt(distanceLon * distanceLon + distanceLat * distanceLat);
+                }
+//                newDis = Math.sqrt(Math.abs(curPlace.getLongitude() - prePlace.getLongitude()) * Math.abs(curPlace.getLatitude() - prePlace.getLatitude()));
+            }
+            recursion(min, list, index + 1, sum + newDis, res, curPlace);
+            //recover
+            swap(i, index, list);
+        }
+    }
+    private void swap(int i, int index, List<Place> list) {
+        Place tmp = list.get(index);
+        list.set(index, list.get(i));
+        list.set(i, tmp);
     }
 }
