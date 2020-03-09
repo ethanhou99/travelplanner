@@ -15,9 +15,7 @@ import TravelPlanner.TravelPlanner.PlanAlgo.PlanAlgoOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class PlanService {
@@ -72,7 +70,7 @@ public class PlanService {
         return plansRepository.save(plan);
     }
 
-    public Plan generatePlan(List<Place> placeList, Integer userId) {
+    public Plan generatePlan(List<Place> placeList, Integer duration, Integer userId) {
         //Plan plan = new Plan();
 //        Plan plan= plansRepository.save(new Plan());
 //        plan.setUserId(userId);
@@ -80,14 +78,38 @@ public class PlanService {
         PlanContext planContext = new PlanContext(new PlanAlgoOne());
         Plan plan = planContext.executeStrategy(placeList);
         plan.setUserId(userId);
-//        DailyPlan dp = dailyPlanRepository.save(new DailyPlan());
-//        dp.setPlanId(plan.getPlanId());
-//        dp.setPlaceList(placeList);
-//        dp.setDayNo(1);
+
+        int dailyPlaceNum = (int) placeList.size()/duration;
+        int remain = placeList.size() % duration;
+        List<DailyPlan> list = new ArrayList<>();
+        for (int i = 0; i < duration; i++) {
+            DailyPlan dp = new DailyPlan();
+            List<Place> cur = new ArrayList<>();
+            for (int j = 0; j < dailyPlaceNum; j++) {
+                cur.add(placeList.get(i * dailyPlaceNum + j));
+            }
+            if (remain > 0) {
+                cur.add(placeList.get(duration * dailyPlaceNum + remain - 1));
+                remain--;
+            }
+            //dp.setPlanId(plan.getPlanId());
+            dp.setPlaceList(cur);
+            dp.setDayNo(i + 1);
+            list.add(dp);
+        }
+        for (DailyPlan dailyPlan : list) {
+            dailyPlan.getPlaceList().sort(new Comparator<Place>() {
+                @Override
+                public int compare(Place o1, Place o2) {
+                    if (o1.getLatitude().equals(o2.getLatitude())) {
+                        return 0;
+                    }
+                    return o1.getLatitude() < o2.getLatitude() ? -1 : 1;
+                }
+            });
+        }
 //        dailyPlanRepository.save(dp);
-//        List<DailyPlan> list = new ArrayList<>();
-//        list.add(dp);
-//        plan.setDailyPlanList(list);
+        plan.setDailyPlanList(list);
         return plan;
     }
 }
