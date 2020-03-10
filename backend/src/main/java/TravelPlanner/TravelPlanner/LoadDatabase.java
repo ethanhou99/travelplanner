@@ -9,33 +9,57 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 @Configuration
 @Slf4j
 public class LoadDatabase {
-
+    private static final String INSTANCE = "travelplanner-instance.ckgcjsfximnc.us-west-1.rds.amazonaws.com" ;
+    private static final String PORT_NUM = "3306";
+    public static final String DB_NAME = "travelplanner";
+    private static final String USERNAME = "admin";
+    private static final String PASSWORD = "travelplanner";
+    public static final String URL = "jdbc:mysql://"	+ INSTANCE + ":" + PORT_NUM + "/" + DB_NAME
+            + "?user=" + USERNAME + "&password=" + PASSWORD
+            + "&autoReconnect=true&serverTimezone=UTC";
     @Bean
     CommandLineRunner initDatabase(PlacesRepository placesRepository) {
         return args -> {
-            Place place = new Place();
-            place.setLatitude(37.785845);
-            place.setLongitude(-122.400965);
-            place.setPlaceName("San Francisco Museum of Modern Art");
-            place.setPlaceInformation("Contemporary & modern paintings, installations, photographs, media & more in a sleek space.");
-            place.setImageURL("https://d32dm0rphc51dk.cloudfront.net/DFJnsvHbSdwLRCoRF4hPVw/wide.jpg");
-            place.setOpenTime("10AM - 5PM");
-            place.setDuration(1.5);
-            place.setAddress("151 3rd St, San Francisco, CA 94103");
-            log.info("preloading " + placesRepository.save(place));
-            Place place2 = new Place();
-            place2.setLatitude(37.777292);
-            place2.setLongitude(-122.432610);
-            place2.setPlaceName("The Painted Ladies");
-            place2.setPlaceInformation("Historical row of Victorian houses well-known for appearances on movies, TV shows & postcards.");
-            place2.setImageURL("https://d3qvqlc701gzhm.cloudfront.net/thumbs/b0a762501eab02f8955153c20a54b3e5078bfd1c9418dde96e623bbbcd82312e-750.jpg");
-            place2.setOpenTime("5AM - 12AM");
-            place2.setDuration(0.5);
-            place2.setAddress("Steiner St &, Hayes St, San Francisco, CA 94117");
-            log.info("preloading " + placesRepository.save(place2));
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver").getConstructor().newInstance();
+                Connection conn = DriverManager.getConnection(URL);
+                String sql = "SELECT * FROM places";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery();
+                System.out.println(1);
+                while(rs.next()) {
+                    String placeName = rs.getString("placeName");
+                    String placeAddr = rs.getString("placeAddr");
+                    String openTime = rs.getString("openTime");
+                    Double lat = Double.parseDouble(rs.getString("latitude"));
+                    Double lon = Double.parseDouble(rs.getString("longtitude"));
+                    Double duration = Double.parseDouble(rs.getString("duration"));
+                    String imageUrl = rs.getString("imageURL");
+                    String placeInfo = rs.getString("placeDescription");
+                    Place place = new Place();
+                    place.setLatitude(lat);
+                    place.setLongitude(lon);
+                    place.setPlaceName(placeName);
+                    place.setPlaceInformation(placeInfo);
+                    place.setImageURL(imageUrl);
+                    place.setOpenTime(openTime);
+                    place.setDuration(duration);
+                    place.setAddress(placeAddr);
+                    log.info("preloading " + placesRepository.save(place));
+                }
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         };
     }
 }
