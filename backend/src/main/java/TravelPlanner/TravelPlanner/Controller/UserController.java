@@ -75,4 +75,9 @@ public class UserController {
         User user = userService.findUserByUserName(auth.getName());
         return "/user/home";
     }
+
+    @PostMapping(value = "/user/home")
+    public User saveProfile(@RequestBody User userProfile) {
+        return userService.saveProfile(userProfile);
+    }
 }
