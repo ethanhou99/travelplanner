@@ -30,6 +30,8 @@ public class Place {
 
     private String address;
 
+    private double rating;
+
 
     //private List<User> visitors;
 
