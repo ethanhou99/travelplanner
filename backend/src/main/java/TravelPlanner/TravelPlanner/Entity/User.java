@@ -62,11 +62,11 @@ public class User {
     @Column
     private String personalBio;
 
+    public User() {
+    }
 
 
-
-
-    //   // @OneToMany
+//   // @OneToMany
 //   // private List<Plan> planList;
 //
 //    public User() {
