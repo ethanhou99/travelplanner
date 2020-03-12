@@ -62,8 +62,8 @@ public class User {
     @Column
     private String personalBio;
 
-    public User() {
-    }
+//    public User() {
+//    }
 
 
 //   // @OneToMany
