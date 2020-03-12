@@ -129,6 +129,12 @@ public class PlanService {
             return;
         }
         if(index == list.size()) {
+//            for(Place pl : list) {
+//                System.out.print(list);
+//            }
+//            System.out.println(sum);
+//            System.out.println(min[0]);
+//            System.out.println("NEXT LIST");
             if(sum < min[0]) {
                 if(res.size() == 0) {
                     res.add(new ArrayList<>(list));
@@ -147,11 +153,11 @@ public class PlanService {
             Place curPlace = list.get(index);
             if(prePlace != null ) {
                 if(curPlace != null) {
-                    double distanceLon = Math.abs(curPlace.getLongitude() - prePlace.getLongitude());
+                    double distanceLon =Math.abs(curPlace.getLongitude() - prePlace.getLongitude());
                     double distanceLat = Math.abs(curPlace.getLatitude() - prePlace.getLatitude());
                     newDis = Math.sqrt(distanceLon * distanceLon + distanceLat * distanceLat);
                 }
-//                newDis = Math.sqrt(Math.abs(curPlace.getLongitude() - prePlace.getLongitude()) * Math.abs(curPlace.getLatitude() - prePlace.getLatitude()));
+//                //newDis = Math.sqrt(Math.abs(curPlace.getLongitude() - prePlace.getLongitude()) * Math.abs(curPlace.getLatitude() - prePlace.getLatitude()));
             }
             recursion(min, list, index + 1, sum + newDis, res, curPlace);
             //recover
