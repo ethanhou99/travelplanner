@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34b7e35f-8099-4cd7-901e-58108026d79f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Entity/Place.class" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Entity/Place.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Entity/Plan.class" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Entity/Plan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Service/PlanService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/target/classes/TravelPlanner/TravelPlanner/Service/PlanService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tplanner/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/tplanner/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tplanner/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/tplanner/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tplanner/src/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/tplanner/src/actions/authActions.js" afterDir="false" />
@@ -112,7 +105,7 @@
       <workItem from="1583605723131" duration="1993000" />
       <workItem from="1583794174871" duration="588000" />
       <workItem from="1583795172374" duration="6965000" />
-      <workItem from="1584048910707" duration="11745000" />
+      <workItem from="1584048910707" duration="11967000" />
     </task>
     <servers />
   </component>
