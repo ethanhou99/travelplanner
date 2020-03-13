@@ -65,15 +65,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         String logoutPage = "/logout";
 
         http.
-                authorizeRequests()
+                csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/home").permitAll()
                 .antMatchers(loginPage).permitAll()
                 .antMatchers("/registration").permitAll()
-                .antMatchers("/user/**").hasAuthority("USER")
+                .antMatchers("/**").permitAll()
+  //              .antMatchers("/user/**").hasAuthority("USER")
                 .anyRequest()
                 .authenticated()
-                .and().csrf().disable()
+                .and()
                 .addFilterBefore(
                         authenticationFilter(),
                         UsernamePasswordAuthenticationFilter.class)
