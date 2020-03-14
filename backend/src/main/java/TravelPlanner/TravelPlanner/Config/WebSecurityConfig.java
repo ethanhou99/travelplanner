@@ -77,32 +77,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         String logoutPage = "/logout";
 
         http.
-                cors();
-//                .and().csrf().disable()
-//                .authorizeRequests()
+                cors()
+                .and().csrf().disable()
+                .authorizeRequests()
 //                .antMatchers("/").permitAll()
-//                .antMatchers("/home").permitAll()
-//                .antMatchers(loginPage).permitAll()
-//                .antMatchers("/registration").permitAll()
+                .antMatchers(HttpMethod.OPTIONS,"/home").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, loginPage).permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/registration").permitAll()
 //                //.antMatchers("/**").permitAll()
 //                .antMatchers("/user/**").hasAuthority("USER")
-//                .anyRequest()
-//                .authenticated()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .addFilterBefore(
+                        authenticationFilter(),
+                        UsernamePasswordAuthenticationFilter.class)
+//                .formLogin()
+////                    .loginPage(loginPage)
+////                    .usernameParameter("username")
+////                    .passwordParameter("password")
+////                    .loginPage("/")
+//                .failureUrl("/login?error=true")
+//                .defaultSuccessUrl("/user/home")
 //                .and()
-//                .addFilterBefore(
-//                        authenticationFilter(),
-//                        UsernamePasswordAuthenticationFilter.class)
-////                .formLogin()
-//////                    .loginPage(loginPage)
-//////                    .usernameParameter("username")
-//////                    .passwordParameter("password")
-//////                    .loginPage("/")
-////                .failureUrl("/login?error=true")
-////                .defaultSuccessUrl("/user/home")
-////                .and()
-//                .logout()
-//                .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
-//                .logoutSuccessUrl(loginPage).and().exceptionHandling();
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
+                .logoutSuccessUrl(loginPage).and().exceptionHandling();
     }
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
