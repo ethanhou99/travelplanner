@@ -11,6 +11,19 @@
     margin: auto;
 }
 
+.registerwarning {
+    height: 40px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    color: red;
+    margin: auto;
+}
+
 .submit_button{
     text-align: center;
     color: white;
