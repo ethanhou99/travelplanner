@@ -8,7 +8,7 @@ class Profile extends Component {
 
     render() {
         return (
-            <div className="col-2of5 bg-white profile">
+            <div className=" bg-white profile">
                 <img className="avatar"  src='./sample-avatar.png' alt="avatar" />
                 <h3>User A</h3>
                 <h5>@usera</h5>
