@@ -43,21 +43,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/home").permitAll()
                 .antMatchers(loginPage).permitAll()
                 .antMatchers("/registration").permitAll()
-                .antMatchers("/user/**").permitAll();
-//                .hasAuthority("USER")
-//                .anyRequest()
-//                .authenticated()
-//                .and().csrf().disable()
-//                .formLogin()
-////                    .loginPage(loginPage)
-////                    .usernameParameter("username")
-////                    .passwordParameter("password")
-////                    .loginPage("/")
-//                .failureUrl("/login?error=true")
-//                .defaultSuccessUrl("/user/home")
-//                .and().logout()
-//                .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
-//                .logoutSuccessUrl(loginPage).and().exceptionHandling();
+                .antMatchers("/user/**")
+                .hasAuthority("USER")
+                .anyRequest()
+                .authenticated()
+                .and().csrf().disable()
+                .formLogin()
+//                    .loginPage(loginPage)
+//                    .usernameParameter("username")
+//                    .passwordParameter("password")
+//                    .loginPage("/")
+                .failureUrl("/login?error=true")
+                .defaultSuccessUrl("/user/home")
+                .and().logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
+                .logoutSuccessUrl(loginPage).and().exceptionHandling();
     }
 
     @Override
