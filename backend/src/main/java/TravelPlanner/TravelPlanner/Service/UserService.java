@@ -45,6 +45,13 @@ public class UserService {
         return usersRepository.save(user);
     }
 
+    public User saveProfile(User userProfile) {
+        User user = findUserByUserName(userProfile.getUserName());
+        user.setLocation(userProfile.getLocation());
+        user.setPersonalBio(userProfile.getPersonalBio());
+        return usersRepository.save(user);
+    }
+
     //easier for controller to create user
     public User createUser(User user) {
         return usersRepository.save(user);

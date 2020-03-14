@@ -22,6 +22,10 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
 
+    public MyUserDetailsService(UserService userService) {
+        this.userService = userService;
+    }
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String userName) {
