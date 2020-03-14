@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0710354c-b361-400f-b847-36f1ed9291a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/main.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Y0cUuJJjUlMRo7Fl7vgedt2s04" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="spring" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0710354c-b361-400f-b847-36f1ed9291a4" name="Default Changelist" comment="" />
+      <created>1582082970373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582082970373</updated>
+      <workItem from="1582082972721" duration="448000" />
+      <workItem from="1582482441923" duration="12161000" />
+      <workItem from="1583207428929" duration="769000" />
+      <workItem from="1583208275119" duration="49000" />
+      <workItem from="1583208366831" duration="122000" />
+      <workItem from="1583208506788" duration="18000" />
+      <workItem from="1583596442354" duration="217000" />
+      <workItem from="1583596706601" duration="1425000" />
+      <workItem from="1583599371536" duration="357000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="515" y="321" width="421" height="232" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1583599673318">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="515" y="321" width="421" height="232" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1440.900@0.0.1440.900" timestamp="1583599673318" />
+    <state x="334" y="146" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1583599589891">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="334" y="146" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.900@0.0.1440.900" timestamp="1583599589891" />
+    <state width="1398" height="165" key="GridCell.Tab.0.bottom" timestamp="1582568925194">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="165" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582568925194" />
+    <state width="1398" height="165" key="GridCell.Tab.0.center" timestamp="1582568925192">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="165" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1582568925192" />
+    <state width="1398" height="165" key="GridCell.Tab.0.left" timestamp="1582568925191">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="165" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1582568925191" />
+    <state width="1398" height="165" key="GridCell.Tab.0.right" timestamp="1582568925193">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="165" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1582568925193" />
+    <state x="208" y="23" width="1024" height="828" key="SettingsEditor" timestamp="1583599703574">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="208" y="23" width="1024" height="828" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1583599703574" />
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1583599756269">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1583599756267" />
+    <state x="424" y="338" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1583598364572">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="424" y="338" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.900@0.0.1440.900" timestamp="1583598364572" />
+    <state x="266" y="128" key="spring file set editor" timestamp="1583599694954">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="266" y="128" key="spring file set editor/0.0.1440.900@0.0.1440.900" timestamp="1583599694954" />
+  </component>
+</project>
