@@ -23,6 +23,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -32,6 +33,7 @@ public class UserController {
 
 
     //registration ---> createUser
+    @CrossOrigin
     @PostMapping(value = "/registration")
     public User createNewUser(@Valid @RequestBody User user, HttpServletResponse response) {
         this.response = response;
@@ -47,6 +49,7 @@ public class UserController {
     }
 
     //unauthorized home page
+    @CrossOrigin
     @GetMapping(value = {"/", "/home"})
     public String home() {
         return "/home";
@@ -69,6 +72,7 @@ public class UserController {
 //    }
 
     //authorized home page
+    @CrossOrigin
     @GetMapping(value = "/user/home")
     public String userHome() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -77,6 +81,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/user/home")
+    @CrossOrigin
     public User saveProfile(@RequestBody User userProfile) {
         return userService.saveProfile(userProfile);
     }
