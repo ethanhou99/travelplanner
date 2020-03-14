@@ -23,6 +23,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -32,6 +33,7 @@ public class UserController {
 
 
     //registration ---> createUser
+    @CrossOrigin
     @PostMapping(value = "/registration")
     public User createNewUser(@Valid @RequestBody User user, HttpServletResponse response) {
         this.response = response;
@@ -47,32 +49,41 @@ public class UserController {
     }
 
     //unauthorized home page
+    @CrossOrigin
     @GetMapping(value = {"/", "/home"})
     public String home() {
         return "/home";
     }
 
-//    //perform Login
-//    @PostMapping("/login")
-//    public User login( @RequestBody User user, HttpServletResponse response) {
-//        this.user = user;
-//        this.response = response;
-//
-//        User userResponse = userService.loginUser(user);
-//        if (userResponse == null) {
-//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//            return null;
-//        } else {
-//            response.setStatus(HttpServletResponse.SC_ACCEPTED);
-//            return userResponse;
-//        }
-//    }
+    //perform Login
+    @CrossOrigin
+    @PostMapping("/login")
+    public User login( @RequestBody User user, HttpServletResponse response) {
+        this.user = user;
+        this.response = response;
+
+        User userResponse = userService.loginUser(user);
+        if (userResponse == null) {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return null;
+        } else {
+            response.setStatus(HttpServletResponse.SC_ACCEPTED);
+            return userResponse;
+        }
+    }
 
     //authorized home page
+    @CrossOrigin
     @GetMapping(value = "/user/home")
     public String userHome() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         return "/user/home";
+    }
+
+    @PostMapping(value = "/user/home")
+    @CrossOrigin
+    public User saveProfile(@RequestBody User userProfile) {
+        return userService.saveProfile(userProfile);
     }
 }
