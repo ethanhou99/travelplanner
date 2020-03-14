@@ -55,21 +55,22 @@ public class UserController {
         return "/home";
     }
 
-//    //perform Login
-//    @PostMapping("/login")
-//    public User login( @RequestBody User user, HttpServletResponse response) {
-//        this.user = user;
-//        this.response = response;
-//
-//        User userResponse = userService.loginUser(user);
-//        if (userResponse == null) {
-//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//            return null;
-//        } else {
-//            response.setStatus(HttpServletResponse.SC_ACCEPTED);
-//            return userResponse;
-//        }
-//    }
+    //perform Login
+    @CrossOrigin
+    @PostMapping("/login")
+    public User login( @RequestBody User user, HttpServletResponse response) {
+        this.user = user;
+        this.response = response;
+
+        User userResponse = userService.loginUser(user);
+        if (userResponse == null) {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return null;
+        } else {
+            response.setStatus(HttpServletResponse.SC_ACCEPTED);
+            return userResponse;
+        }
+    }
 
     //authorized home page
     @CrossOrigin
