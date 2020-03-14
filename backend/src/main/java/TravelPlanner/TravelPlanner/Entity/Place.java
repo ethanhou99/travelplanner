@@ -22,14 +22,15 @@ public class Place {
 
     @NotNull
     private String placeName;
-    @NotNull
+
     private String placeInformation;
-    @NotNull
     private String openTime;
     @NotNull
     private String ImageURL;
 
     private String address;
+
+    private double rating;
 
 
     //private List<User> visitors;

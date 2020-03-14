@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class PlanController {
 
@@ -35,29 +35,34 @@ public class PlanController {
     }
 
     //save the plan
+    @CrossOrigin
     @PostMapping("/plan/{userId}")
     public Plan savePlan(@RequestBody Plan plan, @PathVariable Integer userId) {
         return planService.savePlan(plan, userId);
     }
 
     //get user's planList
+    @CrossOrigin
     @GetMapping("/plan/{userId}")
     public List<Plan> getPlans(@PathVariable Integer userId) {
         return planService.getPlansByUser(userId);
     }
 
     //delete plan
+    @CrossOrigin
     @DeleteMapping("/deletePlan/{planId}")
     public boolean deletePlan(@PathVariable Integer planId) {
         planService.deletePlanById(planId);
         return true;
     }
     @GetMapping("/places")
+    @CrossOrigin
     public List<Place> getAllPlaces() {
         return placeService.findAll();
     }
 
     @GetMapping("/plan/generate/{userId}")
+    @CrossOrigin
     public Plan generatePlan(@RequestBody PlaceListDuration placeListDuration, @PathVariable Integer userId) {
         return planService.generatePlan(placeListDuration.getPlaceList(), placeListDuration.getDuration(), userId);
     }
