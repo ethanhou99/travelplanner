@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import DailyPlan from './DailyPlan';
 import {Row, Container} from 'reactstrap';
 import { Grid } from '@material-ui/core';
-import Axio from 'axios';
+import Axios from 'axios';
 
 export default class PlanMap extends Component {
 
@@ -10,6 +10,7 @@ export default class PlanMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      tab: 1,
       days: {
         "planId": null,
         "userId": 1,
@@ -63,23 +64,29 @@ export default class PlanMap extends Component {
         ]
       }
     }
-
+    this.handleClick = this.handleClick.bind(this)
     // this.state = {
     //   days: []
     // }
   }
 
-  // componentDidMount(){
-  //   Axios.get("http://localhost:8080/plan/1")
-  //       .then(res => {
-  //           if (res.data != null) {
-  //               console.log(res.data)
-  //               const localData = res.data;
-  //               this.setState({
-  //                   days: localData
-  //               })
-  //           }
-  //       })
+    handleClick(tabNumber) {
+      this.setState({
+          tab: tabNumber
+      })
+    }
+
+//   componentDidMount(){
+//     Axios.get("http://localhost:8080/plan/1")
+//         .then(res => {
+//             if (res.data != null) {
+//                 console.log(res.data)
+//                 const localData = res.data;
+//                 this.setState({
+//                     days: localData
+//                 })
+//             }
+//         })
 // }
 
   render() {
@@ -91,7 +98,7 @@ export default class PlanMap extends Component {
             Google Map
           </Grid>
           <Grid xs={6}>
-            <DailyPlan days = {this.state.days}/>
+            <DailyPlan days = {this.state.days} handleClick={this.handleClick}/>
           </Grid>
         </Row>
       </Container>

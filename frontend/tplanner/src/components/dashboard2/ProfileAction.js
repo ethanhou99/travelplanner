@@ -7,8 +7,8 @@ class ProfileAction extends Component {
     render() {
         return (
             <div className="profile-action">
-                <Link className="btn-border space-top" to="/dashboard2/edit">Edit profile</Link>
-                <Link className="btn-border space-top" to="/login">Log out</Link>
+                <Link className="btn btn btn-outline-primary" to="/dashboard2/edit" style={{marginBottom: '10px'}}>Edit profile</Link>
+                <Link className="btn btn-outline-secondary" to="/login">Log out</Link>
             </div>
         );
     }

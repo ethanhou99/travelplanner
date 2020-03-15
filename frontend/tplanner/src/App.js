@@ -15,7 +15,6 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import Dashboard2 from "./components/dashboard2/Dashboard2";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
@@ -27,12 +26,12 @@ import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
 import NotFound from "./components/not-found/NotFound";
 import Predict from "./components/layout/Predict";
+
+import Dashboard2 from "./components/dashboard2/Dashboard2";
 import PlanMap from "./components/map/PlanMap"
 import Plan from './components/plan/Plan'
 
 import "./App.css";
-// import '~antd/dist/antd.css'
-
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -68,15 +67,12 @@ class App extends Component {
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path="/predict" component={Predict} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              {/* <Route exact path="/dashboard2" component={Dashboard2} /> */}
+              <Route exact path="/dashboard2" component={Dashboard2} />
               <Route exact path="/map" component={PlanMap} />
               <Route exact path="/plan" component={Plan} />
-
-
-              {/* <Switch>
+              <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch> */}
+              </Switch>
               <Switch>
                 <PrivateRoute
                   exact

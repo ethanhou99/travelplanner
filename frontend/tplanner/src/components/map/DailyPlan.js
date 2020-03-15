@@ -58,7 +58,7 @@ export default function DailyPlan(props) {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           {props.days.dailyPlanList.map((day) => {
-            return <Tab label={"Day " + day.dayNo} {...a11yProps(0)}/>
+            return <Tab label={"Day " + day.dayNo} {...a11yProps(0)} onClick={() => {props.handleClick(day.dayNo)}}/>
           })}
         </Tabs>
       </AppBar>

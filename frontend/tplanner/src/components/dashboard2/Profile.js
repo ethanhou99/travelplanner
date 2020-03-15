@@ -3,13 +3,14 @@ import { Route } from 'react-router-dom';
 
 import ProfileAction from './ProfileAction';
 import './Dashboard2.css';
+import logo from './sample-avatar.png'
 
 class Profile extends Component {
 
     render() {
         return (
             <div className=" bg-white profile">
-                <img className="avatar"  src='./sample-avatar.png' alt="avatar" />
+                <img className="avatar"  src={logo} alt="avatar" />
                 <h3>User A</h3>
                 <h5>@usera</h5>
                 <h4><i className="fas fa-map-marker-alt"></i> Seattle</h4>
