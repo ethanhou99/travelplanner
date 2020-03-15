@@ -15,7 +15,7 @@ export default () => {
         <div class="form-group">
           <input className="form-control" placeholder="Traveler"></input>
         </div>
-        <Link to="/register" className="btn btn-secondary btn-lg btn-block">
+        <Link to="../plan" className="btn btn-secondary btn-lg btn-block">
           Plan it!
         </Link>
       </div>

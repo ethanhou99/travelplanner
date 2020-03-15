@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PlanItem from './PlanItem';
+import { Link } from 'react-router-dom';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -58,10 +59,11 @@ export default function DailyPlan(props) {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           {props.days.dailyPlanList.map((day) => {
-            return <Tab label={"Day " + day.dayNo} {...a11yProps(0)} onClick={() => {props.handleClick(day.dayNo)}}/>
+            return <Tab label={"Day " + day.dayNo} {...a11yProps(0)}/>
           })}
         </Tabs>
       </AppBar>
+      <div>
       {props.days.dailyPlanList.map((planitem) => {
         return (
           <div>
@@ -71,6 +73,11 @@ export default function DailyPlan(props) {
           </div>
         )
       })}
+      <div class="text-center"> 
+        <Link class="btn btn-outline-secondary" to="../plan">Edit</Link> 
+      </div>
+      </div>
+
     </div>
   );
 }

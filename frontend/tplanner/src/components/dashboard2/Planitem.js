@@ -3,6 +3,7 @@ import moment from 'moment';
 import './Dashboard2.css';
 import {Row} from 'reactstrap';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Left = styled.div`
     width: 40%
@@ -41,7 +42,8 @@ export default class Planitem extends Component {
                     <Duration>A {this.props.value.dailyPlanList.length}-days travel plan at <b>San Francisco</b></Duration>
                     <p><Body>Created at {this.props.value.date}</Body></p>
                     <div class="text-right">
-                        <button type="button" class="btn btn btn-outline-primary btn-small" style={{marginRight: '10px'}} >View</button> 
+                        {/* <button type="button" class="btn btn btn-outline-primary btn-small" style={{marginRight: '10px'}} >View</button>  */}
+                        <Link class="btn btn btn-outline-primary btn-small" to="../map" style={{marginRight: '10px'} } >View</Link> 
                     </div>
                 </Right>
             </div>
